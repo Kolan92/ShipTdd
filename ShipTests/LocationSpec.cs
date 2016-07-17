@@ -26,78 +26,78 @@ namespace ShipTests {
 
         [Test]
         public void whenInstantiatedThenXIsStored() {
-            Assert.Equals(location.X, x);
+            Assert.AreEqual(location.X, x);
         }
         [Test]
         public void whenInstantiatedThenYIsStored() {
-            Assert.Equals(location.Y, y);
+            Assert.AreEqual(location.Y, y);
         }
         [Test]
         public void whenInstantiatedThenDirectionIsStored() {
-            Assert.Equals(location.Direction, direction);
+            Assert.AreEqual(location.Direction, direction);
         }
         [Test]
         public void givenDirectionNWhenForwardThanYDecreases() {
             location.Forward(max, obstacles);
-            Assert.Equals(location.Y, y - 1);
+            Assert.AreEqual(location.Y, y - 1);
         }
         [Test]
         public void givenDirectionSWhenForwardThanYIncreases() {
             location.Direction = Direction.South;
             location.Forward(max, obstacles);
-            Assert.Equals(location.Y, y + 1);
+            Assert.AreEqual(location.Y, y + 1);
         }
         [Test]
         public void givenDirectionEWhenForwardThanXIncreases() {
             location.Direction = Direction.East;
             location.Forward(max, obstacles);
-            Assert.Equals(location.X, x + 1);
+            Assert.AreEqual(location.X, x + 1);
         }
         [Test]
         public void givenDirectionWWhenForwardThanXDecreases() {
             location.Direction = Direction.West;
             location.Forward(max, obstacles);
-            Assert.Equals(location.X, x - 1);
+            Assert.AreEqual(location.X, x - 1);
         }
         [Test]
         public void givenDirectionNWhenBackwardThanYIncreases() {
             location.Direction = Direction.North;
             location.Backward(max, obstacles);
-            Assert.Equals(location.Y, y + 1);
+            Assert.AreEqual(location.Y, y + 1);
         }
         [Test]
         public void givenDirectionSWhenBackwardThanYDecreases() {
             location.Direction = Direction.South;
             location.Backward(max, obstacles);
-            Assert.Equals(location.Y, y - 1);
+            Assert.AreEqual(location.Y, y - 1);
         }
         [Test]
         public void givenDirectionEWhenBackwardThanXDecreases() {
             location.Direction = Direction.East;
             location.Backward(max, obstacles);
-            Assert.Equals(location.X, x - 1);
+            Assert.AreEqual(location.X, x - 1);
         }
         [Test]
         public void givenDirectionWWhenBackwardThanXIncreases() {
             location.Direction = Direction.West;
             location.Backward(max, obstacles);
-            Assert.Equals(location.X, x + 1);
+            Assert.AreEqual(location.X, x + 1);
         }
         [Test]
         public void whenTurnLeftThenDirectionIsSet() {
             location.TurnLeft();
-            Assert.Equals(location.Direction, Direction.West);
+            Assert.AreEqual(location.Direction, Direction.West);
         }
         [Test]
         public void whenTurnRightThenDirectionIsSet() {
             location.TurnRight();
-            Assert.Equals(location.Direction, Direction.East);
+            Assert.AreEqual(location.Direction, Direction.East);
         }
         [Test]
         public void givenSameObjectsWhenEqualsThenTrue() {
             Assert.True(location.Equals(location));
         }
-
+        [Test]
         public void givenDifferentObjectWhenEqualsThenFalse() {
             Assert.False(location.Equals("bla"));
         }
@@ -129,35 +129,35 @@ namespace ShipTests {
         [Test]
         public void whenCopyThenEquals() {
             Location copy = location.Copy();
-            Assert.Equals(copy, location);
+            Assert.AreEqual(copy, location);
         }
         [Test]
         public void givenDirectionEAndXEqualsMaxXWhenForwardThen1() {
             location.Direction = Direction.East;
             location.Point.X = max.X;
             location.Forward(max, obstacles);
-            Assert.Equals(location.X, 1);
+            Assert.AreEqual(location.X, 1);
         }
         [Test]
         public void givenDirectionWAndXEquals1WhenForwardThenMaxX() {
             location.Direction = Direction.West;
             location.Point.X = 1;
             location.Forward(max, obstacles);
-            Assert.Equals(location.X, max.X);
+            Assert.AreEqual(location.X, max.X);
         }
         [Test]
         public void givenDirectionNAndYEquals1WhenForwardThenMaxY() {
             location.Direction = Direction.North;
             location.Point.Y = 1;
             location.Forward(max, obstacles);
-            Assert.Equals(location.Y, max.Y);
+            Assert.AreEqual(location.Y, max.Y);
         }
         [Test]
         public void givenDirectionSAndYEqualsMaxYWhenForwardThen1() {
             location.Direction = Direction.South;
             location.Point.Y = max.Y;
             location.Forward(max, obstacles);
-            Assert.Equals(location.Y, 1);
+            Assert.AreEqual(location.Y, 1);
         }
         [Test]
         public void givenObstacleWhenForwardThenReturnFalse() {

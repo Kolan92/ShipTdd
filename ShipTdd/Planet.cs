@@ -12,5 +12,9 @@ namespace ShipTdd {
             Max = max;
             Obstacles = obstacles;
         }
+
+        public Planet(Point max) {
+            Max = max;
+        }
     }
 }
